@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FutureMe — Meet the version of you who already made it</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="orb orb-1"></div>
@@ -58,29 +60,34 @@
 
     <section id="how-it-works" class="reveal">
         <div class="section-header">
-            <div class="badge" style="color: #6366f1;"><span class="badge-dot" style="background:#6366f1; box-shadow:0 0 8px #6366f1;"></span>AI Reflection</div>
+            <div class="badge" style="color: #6366f1;"><span class="badge-dot"
+                    style="background:#6366f1; box-shadow:0 0 8px #6366f1;"></span>AI Reflection</div>
             <h2>Designed for deep tactical reflection.</h2>
             <p>Traditional AI is a generic assistant. FutureMe is a hyper-personalized psychological loop.</p>
         </div>
         <div class="hook-grid">
             <div class="glass-card hook-card">
                 <h3>Your goals</h3>
-                <p>Tell FutureMe what you want to become. Clear the noise and define the exact coordinates of your horizon.</p>
+                <p>Tell FutureMe what you want to become. Clear the noise and define the exact coordinates of your
+                    horizon.</p>
             </div>
             <div class="glass-card hook-card">
                 <h3>Your fears</h3>
-                <p>Be honest about what is stopping you. Shed light on the hidden friction points holding you back today.</p>
+                <p>Be honest about what is stopping you. Shed light on the hidden friction points holding you back
+                    today.</p>
             </div>
             <div class="glass-card hook-card">
                 <h3>Your next move</h3>
-                <p>Get a clear message from your future self. Pure strategic calibration derived directly from your destination.</p>
+                <p>Get a clear message from your future self. Pure strategic calibration derived directly from your
+                    destination.</p>
             </div>
         </div>
     </section>
 
     <section id="create" class="reveal">
         <div class="section-header">
-            <div class="badge" style="color: #ec4899;"><span class="badge-dot" style="background:#ec4899; box-shadow:0 0 8px #ec4899;"></span>Personal Growth</div>
+            <div class="badge" style="color: #ec4899;"><span class="badge-dot"
+                    style="background:#ec4899; box-shadow:0 0 8px #ec4899;"></span>Personal Growth</div>
             <h2>Construct your timeline.</h2>
             <p>Provide your context. Your future self will map out the trajectory from where you are standing.</p>
         </div>
@@ -97,15 +104,19 @@
                     </div>
                     <div class="form-group form-full">
                         <label for="userGoal">Your dream / goal</label>
-                        <input type="text" id="userGoal" placeholder="e.g. Building a scaling tech startup or mastering creative design" required>
+                        <input type="text" id="userGoal"
+                            placeholder="e.g. Building a scaling tech startup or mastering creative design" required>
                     </div>
                     <div class="form-group form-full">
                         <label for="userStruggle">What are you struggling with right now?</label>
-                        <textarea id="userStruggle" placeholder="e.g. Getting distracted by short-term metrics, lack of perfect clarity..." required></textarea>
+                        <textarea id="userStruggle"
+                            placeholder="e.g. Getting distracted by short-term metrics, lack of perfect clarity..."
+                            required></textarea>
                     </div>
                     <div class="form-group form-full">
                         <label for="userTimeline">Where do you want to be in 1 year?</label>
-                        <input type="text" id="userTimeline" placeholder="e.g. Launching V2 with a solid engineering team" required>
+                        <input type="text" id="userTimeline"
+                            placeholder="e.g. Launching V2 with a solid engineering team" required>
                     </div>
                     <div class="form-group form-full">
                         <label for="userTone">Choose your FutureMe tone</label>
@@ -117,9 +128,11 @@
                         </select>
                     </div>
                     <div class="error-msg" id="formError">
-                        <span>⚠️</span> <span id="errorText">Please fill out all required timeline parameters correctly.</span>
+                        <span>⚠️</span> <span id="errorText">Please fill out all required timeline parameters
+                            correctly.</span>
                     </div>
-                    <button type="submit" id="btnSubmitForm" class="btn btn-primary app-submit-btn">Generate My FutureMe</button>
+                    <button type="submit" id="btnSubmitForm" class="btn btn-primary app-submit-btn">Generate My
+                        FutureMe</button>
                 </form>
 
                 <div class="loading-container" id="loadingState">
@@ -132,14 +145,14 @@
                         <h3>Message from your FutureMe</h3>
                         <div class="result-identity-tag" id="dynamicIdentity"></div>
                     </div>
-                    
+
                     <div class="result-message" id="dynamicMessage"></div>
-                    
+
                     <div class="result-section">
                         <h4>Your Next 3 Moves</h4>
                         <ul class="result-moves-list" id="dynamicMoves"></ul>
                     </div>
-                    
+
                     <div class="result-section">
                         <h4>One Habit to Start Today</h4>
                         <div class="result-habit-box" id="dynamicHabit"></div>
@@ -156,9 +169,12 @@
                     </div>
 
                     <div class="btn-group" style="margin-top: 3rem;">
-                        <button class="btn btn-primary" id="btnCopyResult" onclick="copyResultToClipboard()">Copy Result</button>
-                        <button class="btn btn-secondary" id="btnStartChat" onclick="scrollToChatSection()">Start Chat with FutureMe</button>
-                        <button class="btn btn-secondary" id="btnRegenerate" onclick="resetFormState()">Regenerate</button>
+                        <button class="btn btn-primary" id="btnCopyResult" onclick="copyResultToClipboard()">Copy
+                            Result</button>
+                        <button class="btn btn-secondary" id="btnStartChat" onclick="scrollToChatSection()">Start Chat
+                            with FutureMe</button>
+                        <button class="btn btn-secondary" id="btnRegenerate"
+                            onclick="resetFormState()">Regenerate</button>
                     </div>
                 </div>
 
@@ -178,12 +194,13 @@
                     Welcome. Generate your FutureMe report first, then we can talk about how we make it a reality.
                 </div>
             </div>
-            
+
             <div class="chat-input-wrapper">
-                <input type="text" id="chatInput" placeholder="Generate FutureMe to start talking..." disabled onkeydown="handleChatKeydown(event)">
+                <input type="text" id="chatInput" placeholder="Generate FutureMe to start talking..." disabled
+                    onkeydown="handleChatKeydown(event)">
                 <button id="btnSendChat" class="chat-send-btn" disabled onclick="sendChatMessage()">
                     <svg viewBox="0 0 24 24">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                     </svg>
                 </button>
             </div>
@@ -194,22 +211,26 @@
         <div class="glass-card hack-panel">
             <div class="badge" style="color: #a855f7;"><span class="badge-dot"></span>Live Build</div>
             <h2 style="font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Founder Lab AI Hack</h2>
-            <p style="color: var(--text-secondary); max-width: 600px;">Advanced, architectural prompting mindsets engineered for deep systemic growth during live configurations.</p>
+            <p style="color: var(--text-secondary); max-width: 600px;">Advanced, architectural prompting mindsets
+                engineered for deep systemic growth during live configurations.</p>
             <div class="hack-grid">
                 <div class="hack-item">
                     <div class="hack-icon-pill">Strategy 01</div>
                     <h4>Identity Prompting</h4>
-                    <p>Don’t ask AI what to do. Ask it to respond structurally as the specific iteration of you who already mastered the constraint.</p>
+                    <p>Don’t ask AI what to do. Ask it to respond structurally as the specific iteration of you who
+                        already mastered the constraint.</p>
                 </div>
                 <div class="hack-item">
                     <div class="hack-icon-pill">Strategy 02</div>
                     <h4>Constraint Prompting</h4>
-                    <p>Hardcode boundaries directly like precise energetic limits, budget parameters, and acute local talent profiles to force practical velocity.</p>
+                    <p>Hardcode boundaries directly like precise energetic limits, budget parameters, and acute local
+                        talent profiles to force practical velocity.</p>
                 </div>
                 <div class="hack-item">
                     <div class="hack-icon-pill">Strategy 03</div>
                     <h4>Reverse Fear Prompting</h4>
-                    <p>Invert standard parameters. Command the engine to deduce exactly which macro mistake your elder identity would warn you about today.</p>
+                    <p>Invert standard parameters. Command the engine to deduce exactly which macro mistake your elder
+                        identity would warn you about today.</p>
                 </div>
             </div>
         </div>
@@ -224,7 +245,7 @@
     </section>
 
     <footer>
-        Nitish’s Founder Labs • FutureMe Live Build
+        FutureMe Live Build
     </footer>
 
     <div class="toast" id="shareToast">
@@ -234,4 +255,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
