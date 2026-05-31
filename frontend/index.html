@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureMe — Meet the version of you who already made it</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">FutureMe</a>
+            <div class="nav-links">
+                <a href="#how-it-works">How it works</a>
+                <a href="#create">Create</a>
+                <a href="#chat">Chat</a>
+                <a href="#ai-hack">AI Hack</a>
+                <a href="#create" class="nav-btn">Start Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="reveal">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="badge">
+                    <span class="badge-dot"></span>Built in Nitish’s Founder Labs
+                </div>
+                <h1>Meet the version of you who already made it.</h1>
+                <p>FutureMe helps you reflect, plan, and receive advice from the person you are becoming.</p>
+                <div class="btn-group">
+                    <a href="#create" class="btn btn-primary">Create My FutureMe</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="glass-card preview-card">
+                    <div class="preview-header">
+                        <div class="preview-avatar">Y</div>
+                        <div class="preview-title">Message from Future You</div>
+                    </div>
+                    <div class="preview-body">
+                        “You are closer than you think. But your current habits need to match your future identity.”
+                    </div>
+                    <div class="preview-meta">
+                        <span class="meta-dot"></span>
+                        <span>FutureMe generated • 4 seconds ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="reveal">
+        <div class="section-header">
+            <div class="badge" style="color: #6366f1;"><span class="badge-dot" style="background:#6366f1; box-shadow:0 0 8px #6366f1;"></span>AI Reflection</div>
+            <h2>Designed for deep tactical reflection.</h2>
+            <p>Traditional AI is a generic assistant. FutureMe is a hyper-personalized psychological loop.</p>
+        </div>
+        <div class="hook-grid">
+            <div class="glass-card hook-card">
+                <h3>Your goals</h3>
+                <p>Tell FutureMe what you want to become. Clear the noise and define the exact coordinates of your horizon.</p>
+            </div>
+            <div class="glass-card hook-card">
+                <h3>Your fears</h3>
+                <p>Be honest about what is stopping you. Shed light on the hidden friction points holding you back today.</p>
+            </div>
+            <div class="glass-card hook-card">
+                <h3>Your next move</h3>
+                <p>Get a clear message from your future self. Pure strategic calibration derived directly from your destination.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="create" class="reveal">
+        <div class="section-header">
+            <div class="badge" style="color: #ec4899;"><span class="badge-dot" style="background:#ec4899; box-shadow:0 0 8px #ec4899;"></span>Personal Growth</div>
+            <h2>Construct your timeline.</h2>
+            <p>Provide your context. Your future self will map out the trajectory from where you are standing.</p>
+        </div>
+        <div class="app-container">
+            <div class="glow-box">
+                <form id="futureForm" class="app-form" onsubmit="handleGenerateSubmit(event)">
+                    <div class="form-group">
+                        <label for="userName">Your name</label>
+                        <input type="text" id="userName" placeholder="e.g. Nitish" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userAge">Your current age</label>
+                        <input type="number" id="userAge" placeholder="e.g. 28" required min="1" max="120">
+                    </div>
+                    <div class="form-group form-full">
+                        <label for="userGoal">Your dream / goal</label>
+                        <input type="text" id="userGoal" placeholder="e.g. Building a scaling tech startup or mastering creative design" required>
+                    </div>
+                    <div class="form-group form-full">
+                        <label for="userStruggle">What are you struggling with right now?</label>
+                        <textarea id="userStruggle" placeholder="e.g. Getting distracted by short-term metrics, lack of perfect clarity..." required></textarea>
+                    </div>
+                    <div class="form-group form-full">
+                        <label for="userTimeline">Where do you want to be in 1 year?</label>
+                        <input type="text" id="userTimeline" placeholder="e.g. Launching V2 with a solid engineering team" required>
+                    </div>
+                    <div class="form-group form-full">
+                        <label for="userTone">Choose your FutureMe tone</label>
+                        <select id="userTone" required>
+                            <option value="Motivational">Motivational (warm, inspiring, supportive)</option>
+                            <option value="Brutally Honest">Brutally Honest (direct, sharp, no excuses)</option>
+                            <option value="Calm Mentor">Calm Mentor (peaceful, wise, grounded)</option>
+                            <option value="CEO Mode">CEO Mode (strategic, focused, execution-heavy)</option>
+                        </select>
+                    </div>
+                    <div class="error-msg" id="formError">
+                        <span>⚠️</span> <span id="errorText">Please fill out all required timeline parameters correctly.</span>
+                    </div>
+                    <button type="submit" id="btnSubmitForm" class="btn btn-primary app-submit-btn">Generate My FutureMe</button>
+                </form>
+
+                <div class="loading-container" id="loadingState">
+                    <div class="spinner"></div>
+                    <div class="loading-text" id="loadingText">Creating your future identity...</div>
+                </div>
+
+                <div class="glass-card result-container" id="resultCard">
+                    <div class="result-header">
+                        <h3>Message from your FutureMe</h3>
+                        <div class="result-identity-tag" id="dynamicIdentity"></div>
+                    </div>
+                    
+                    <div class="result-message" id="dynamicMessage"></div>
+                    
+                    <div class="result-section">
+                        <h4>Your Next 3 Moves</h4>
+                        <ul class="result-moves-list" id="dynamicMoves"></ul>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h4>One Habit to Start Today</h4>
+                        <div class="result-habit-box" id="dynamicHabit"></div>
+                    </div>
+
+                    <div class="result-section">
+                        <h4>Mistake to Avoid</h4>
+                        <div class="result-warning-box" id="dynamicWarning"></div>
+                    </div>
+
+                    <div class="result-section">
+                        <h4>Daily Mantra</h4>
+                        <div class="result-mantra-box" id="dynamicMantra"></div>
+                    </div>
+
+                    <div class="btn-group" style="margin-top: 3rem;">
+                        <button class="btn btn-primary" id="btnCopyResult" onclick="copyResultToClipboard()">Copy Result</button>
+                        <button class="btn btn-secondary" id="btnStartChat" onclick="scrollToChatSection()">Start Chat with FutureMe</button>
+                        <button class="btn btn-secondary" id="btnRegenerate" onclick="resetFormState()">Regenerate</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="chat" class="reveal">
+        <div class="section-header">
+            <h2>Ask your future self anything.</h2>
+            <p>An ongoing dialogue. Calibrate your real-time execution choices with deep existential hindsight.</p>
+        </div>
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-bubble chat-future">
+                    <span class="chat-label">FutureMe</span>
+                    Welcome. Generate your FutureMe report first, then we can talk about how we make it a reality.
+                </div>
+            </div>
+            
+            <div class="chat-input-wrapper">
+                <input type="text" id="chatInput" placeholder="Generate FutureMe to start talking..." disabled onkeydown="handleChatKeydown(event)">
+                <button id="btnSendChat" class="chat-send-btn" disabled onclick="sendChatMessage()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-hack" class="reveal">
+        <div class="glass-card hack-panel">
+            <div class="badge" style="color: #a855f7;"><span class="badge-dot"></span>Live Build</div>
+            <h2 style="font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Founder Lab AI Hack</h2>
+            <p style="color: var(--text-secondary); max-width: 600px;">Advanced, architectural prompting mindsets engineered for deep systemic growth during live configurations.</p>
+            <div class="hack-grid">
+                <div class="hack-item">
+                    <div class="hack-icon-pill">Strategy 01</div>
+                    <h4>Identity Prompting</h4>
+                    <p>Don’t ask AI what to do. Ask it to respond structurally as the specific iteration of you who already mastered the constraint.</p>
+                </div>
+                <div class="hack-item">
+                    <div class="hack-icon-pill">Strategy 02</div>
+                    <h4>Constraint Prompting</h4>
+                    <p>Hardcode boundaries directly like precise energetic limits, budget parameters, and acute local talent profiles to force practical velocity.</p>
+                </div>
+                <div class="hack-item">
+                    <div class="hack-icon-pill">Strategy 03</div>
+                    <h4>Reverse Fear Prompting</h4>
+                    <p>Invert standard parameters. Command the engine to deduce exactly which macro mistake your elder identity would warn you about today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="dopamine-container">
+            <h2>You did not just build a page. You built a mirror.</h2>
+            <p>FutureMe turns AI from an extraction tool into a powerful, living personal growth experience.</p>
+            <button class="btn btn-primary" onclick="showShareToast()">Share My FutureMe</button>
+        </div>
+    </section>
+
+    <footer>
+        Nitish’s Founder Labs • FutureMe Live Build
+    </footer>
+
+    <div class="toast" id="shareToast">
+        <div class="toast-icon">✓</div>
+        <span id="toastText">Your FutureMe moment is ready to share.</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
